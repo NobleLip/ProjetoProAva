@@ -12,7 +12,6 @@ import android.view.MenuItem
 import ipg.pt.trabalhofinal.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
