@@ -10,7 +10,7 @@ class TabelaPaises(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABLE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $NOME TEXT NOT NULL, $NUM_CASOS INTEGER NOT NULL, $DATA TEXT NOT NULL, $AVALIA INT NOT NULL)")
+        db.execSQL("CREATE TABLE $NOME_TABLE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $NOME TEXT NOT NULL, $NUM_CASOS INTEGER NOT NULL, $DATA TEXT NOT NULL, $AVALIAPRE INT NOT NULL)")
 
     }
 
@@ -42,7 +42,7 @@ class TabelaPaises(db: SQLiteDatabase) {
         const val NOME = "Nome"
         const val NUM_CASOS = "Num_Casos"
         const val DATA = "Data"
-        const val AVALIA = "Avalia" //Avalia se e possivel visitar
+        const val AVALIAPRE = "Avalia_Preco" //Avalia se e possivel visitar
     }
 
 }

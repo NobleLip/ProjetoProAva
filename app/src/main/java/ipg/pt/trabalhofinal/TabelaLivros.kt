@@ -38,7 +38,7 @@ class TabelaLivros(db: SQLiteDatabase) {
     companion object{
         const val NOME_TABLE = "Livros"
         const val NOME_LIVRO = "Nome"
-        const val AVALIA = "Rate"
+        const val AVALIA = "Avalia"
         const val TIPO = "Tipo"
     }
 }
