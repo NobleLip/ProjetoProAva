@@ -7,7 +7,7 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.BaseColumns
 
-class ContentProviderCovid : ContentProvider() {
+class ContentProvider : ContentProvider() {
 
     private var BDOpenHelper : BDOpenHP? = null
 
