@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_fragmentLivros_to_fragmentHomee"
             app:destination="@id/fragmentHomee" />
+        <action
+            android:id="@+id/action_fragmentLivros_to_fragmentNovoLivro"
+            app:destination="@id/fragmentNovoLivro" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPaises"
@@ -46,5 +49,14 @@
         <action
             android:id="@+id/action_fragmentHomee_to_fragmentPessoas"
             app:destination="@id/fragmentPessoas" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentNovoLivro"
+        android:name="ipg.pt.trabalhofinal.FragmentNovoLivro"
+        android:label="fragment_novo_livro"
+        tools:layout="@layout/fragment_novo_livro" >
+        <action
+            android:id="@+id/action_fragmentNovoLivro_to_fragmentLivros"
+            app:destination="@id/fragmentLivros" />
     </fragment>
 </navigation>

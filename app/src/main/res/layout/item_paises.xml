@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp">
+
+    <TextView
+        android:id="@+id/textViewPaisNome"
+        android:layout_width="184dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPaisPreco"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Espanha" />
+
+    <TextView
+        android:id="@+id/textViewPaisPreco"
+        android:layout_width="73dp"
+        android:layout_height="30dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/textViewEuro"
+        app:layout_constraintTop_toTopOf="@+id/textViewPaisNome"
+        tools:text="49.5" />
+
+    <TextView
+        android:id="@+id/textViewPaisAva"
+        android:layout_width="25dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPreStar"
+        app:layout_constraintTop_toTopOf="@+id/textViewEuro"
+        tools:text="4.5" />
+
+    <TextView
+        android:id="@+id/textViewPreStar"
+        android:layout_width="38dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/stars"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewPaisAva" />
+
+    <TextView
+        android:id="@+id/textViewEuro"
+        android:layout_width="22dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:text="@string/Euro"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPaisAva"
+        app:layout_constraintTop_toTopOf="@+id/textViewPaisPreco" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.BaseColumns
 
-class ContentProvider : ContentProvider() {
+class ContentProviderApp : ContentProvider() {
 
     private var BDOpenHelper : BDOpenHP? = null
 
@@ -168,7 +168,7 @@ class ContentProvider : ContentProvider() {
 
     companion object{
 
-        const val AUTHORITY = "pt.ipg.trabalhofinal"
+        const val AUTHORITY = "ipg.pt.trabalhofinal"
         const val LIVROS = "Livros"
         const val PESSOAS = "Pessoas"
         const val PAISES = "Paises"

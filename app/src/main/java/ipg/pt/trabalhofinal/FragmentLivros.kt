@@ -1,59 +1,102 @@
 package ipg.pt.trabalhofinal
 
+import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import ipg.pt.trabalhofinal.databinding.FragmentLivrosBinding
+import pt.ipg.trabalhofinal.AdapterLivros
+import pt.ipg.trabalhofinal.ContentProviderApp
+import pt.ipg.trabalhofinal.TabelaLivros
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentLivros.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentLivros : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var livrosViewModel: LivrosViewModel
+    private var _binding: FragmentLivrosBinding? = null
+
+    private var adapterLivros: AdapterLivros? = null
+
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Dados.fragment = this
+
+        livrosViewModel =
+            ViewModelProvider(this).get(LivrosViewModel::class.java)
+
+        _binding = FragmentLivrosBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerViewLivros = view.findViewById<RecyclerView>(R.id.RecyclerLivros)
+        adapterLivros = AdapterLivros(this)
+        recyclerViewLivros.adapter = adapterLivros
+        recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
+
+        //val loaderManager = LoaderManager.getInstance(this)
+
+        //loaderManager.initLoader(ID_LOADER_MANAGER_LIVROS, null, this)
+
+        binding.buttonAdicionar.setOnClickListener {
+            navegaNovoLivro()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_livros, container, false)
+    fun navegaNovoLivro() {
+        findNavController().navigate(R.id.action_fragmentLivros_to_fragmentNovoLivro)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentLivros.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentLivros().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun navegaAlterarLivro() {
+        //todo: navegar para o fragmento da edição de um enfermeiro
+    }
+
+    fun navegaEliminarLivro() {
+        //todo: navegar para o fragmento para confirmar eliminação de um enfermeiro
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+        return CursorLoader(
+            requireContext(),
+            ContentProviderApp.ENDERECO_LIVROS,
+            TabelaLivros.TODOS_CAMPOS,
+            null, null,
+            TabelaLivros.NOME_LIVRO
+        )
+    }
+
+    fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+        adapterLivros!!.cursor = data
+    }
+
+    fun onLoaderReset(loader: Loader<Cursor>) {
+        adapterLivros!!.cursor = null
+    }
+
+    companion object{
+        const val ID_LOADER_MANAGER_LIVROS = 0
     }
 }
+

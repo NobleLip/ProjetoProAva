@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp">
+
+    <TextView
+        android:id="@+id/textViewLivroNome"
+        android:layout_width="184dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12 Regras para a Vida " />
+
+    <TextView
+        android:id="@+id/textViewLivroAva"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/textViewLivroNome"
+        app:layout_constraintTop_toTopOf="@+id/textViewLivroNome"
+        tools:text="4.5" />
+
+    <TextView
+        android:id="@+id/textViewLivroTipo"
+        android:layout_width="126dp"
+        android:layout_height="51dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewPreStar"
+        app:layout_constraintTop_toTopOf="@+id/textViewPreStar"
+        tools:text="Estilo de Vida" />
+
+    <TextView
+        android:id="@+id/textViewPreStar"
+        android:layout_width="38dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/stars"
+        app:layout_constraintStart_toEndOf="@+id/textViewLivroAva"
+        app:layout_constraintTop_toTopOf="@+id/textViewLivroAva" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

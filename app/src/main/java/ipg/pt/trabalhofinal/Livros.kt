@@ -6,7 +6,7 @@ import android.provider.BaseColumns
 import pt.ipg.trabalhofinal.TabelaLivros
 
 
-data class Livros (var id: Long = -1, var Nome: String, var Avalia: Int, var Tipo: String) {
+data class Livros(var id: Long = -1, var Nome: String, var Avalia: String, var Tipo: String) {
 
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
@@ -29,7 +29,7 @@ data class Livros (var id: Long = -1, var Nome: String, var Avalia: Int, var Tip
 
             val id = cursor.getLong(posCampoId)
             val Nome = cursor.getString(posCampoNomeLivro)
-            val Avalia = cursor.getInt(posCampoAvalia)
+            val Avalia = cursor.getString(posCampoAvalia)
             val Tipo = cursor.getString(posCampoTipo)
 
             return Livros(id, Nome, Avalia, Tipo)

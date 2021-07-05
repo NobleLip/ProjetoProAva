@@ -17,4 +17,16 @@
     <string name="bem_vindo_ao_notebookcovid">Bem-Vindo ao NotebookCovid</string>
     <string name="todo">TODO</string>
     <string name="todo1">TODO1</string>
+    <string name="stars">Stars</string>
+    <string name="Euro">€</string>
+    <string name="avalia_o">Avaliação</string>
+    <string name="nome_do_livro">Nome do Livro</string>
+    <string name="tipo">Tipo</string>
+    <string name="adicionar_pais">Adicionar Pais</string>
+    <string name="adicionar_pessoa">Adicionar Pessoa</string>
+    <string name="Necessario_NomeLivro">Adicionar Nome do Livro </string>
+    <string name="Necessario_AvaLivro">Adicionar Avaliação do Livro </string>
+    <string name="Necessario_TipoLivro">Adicionar Tipo do Livro </string>
+    <string name="ErroAdicionarLivro">Erro ao Adicionar Livro </string>
+    <string name="adicionar_livro">Adicionar Livro</string>
 </resources>

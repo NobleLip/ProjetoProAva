@@ -8,7 +8,7 @@ class TabelaLivros(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABLE( ${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $NOME_LIVRO TEXT NOT NULL, $AVALIA INT NOT NULL, $TIPO TEXT NOT NULL)")
+        db.execSQL("CREATE TABLE $NOME_TABLE( ${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $NOME_LIVRO TEXT NOT NULL, $AVALIA TEXT NOT NULL, $TIPO TEXT NOT NULL)")
 
     }
 
@@ -40,5 +40,6 @@ class TabelaLivros(db: SQLiteDatabase) {
         const val NOME_LIVRO = "Nome"
         const val AVALIA = "Avalia"
         const val TIPO = "Tipo"
+        val TODOS_CAMPOS = arrayOf(BaseColumns._ID, NOME_LIVRO, AVALIA, TIPO)
     }
 }
