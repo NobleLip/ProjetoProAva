@@ -3,26 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/fragmentHomee">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="ipg.pt.trabalhofinal.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/fragmentLivros"
+        android:name="ipg.pt.trabalhofinal.FragmentLivros"
+        android:label="fragment_livros"
+        tools:layout="@layout/fragment_livros" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_fragmentLivros_to_fragmentHomee"
+            app:destination="@id/fragmentHomee" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="ipg.pt.trabalhofinal.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/fragmentPaises"
+        android:name="ipg.pt.trabalhofinal.FragmentPaises"
+        android:label="fragment_paises"
+        tools:layout="@layout/fragment_paises" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_fragmentPaises_to_fragmentHomee"
+            app:destination="@id/fragmentHomee" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPessoas"
+        android:name="ipg.pt.trabalhofinal.FragmentPessoas"
+        android:label="fragment_pessoas"
+        tools:layout="@layout/fragment_pessoas" >
+        <action
+            android:id="@+id/action_fragmentPessoas_to_fragmentHomee"
+            app:destination="@id/fragmentHomee" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHomee"
+        android:name="ipg.pt.trabalhofinal.FragmentHome"
+        android:label="fragment_homee"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragmentHomee_to_fragmentLivros"
+            app:destination="@id/fragmentLivros" />
+        <action
+            android:id="@+id/action_fragmentHomee_to_fragmentPaises"
+            app:destination="@id/fragmentPaises" />
+        <action
+            android:id="@+id/action_fragmentHomee_to_fragmentPessoas"
+            app:destination="@id/fragmentPessoas" />
     </fragment>
 </navigation>
