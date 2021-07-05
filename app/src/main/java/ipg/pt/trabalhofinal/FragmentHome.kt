@@ -35,11 +35,11 @@ class FragmentHome : Fragment() {
         }
 
         binding.buttonPaises.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentHomee_to_fragmentLivros)
+            findNavController().navigate(R.id.action_fragmentHomee_to_fragmentPaises)
         }
 
         binding.buttonPessoas.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentHomee_to_fragmentLivros)
+            findNavController().navigate(R.id.action_fragmentHomee_to_fragmentPessoas)
         }
     }
 
