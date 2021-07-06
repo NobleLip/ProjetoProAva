@@ -3,7 +3,6 @@ package ipg.pt.trabalhofinal
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
-import pt.ipg.trabalhofinal.TabelaPaises
 
 
 data class Paises (var id: Long = -1, var Nome: String, var AvaliaPre: Int, var Preco: Float) {

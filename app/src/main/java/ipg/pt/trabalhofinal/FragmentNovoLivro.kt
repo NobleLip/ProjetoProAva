@@ -9,7 +9,6 @@ import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import ipg.pt.trabalhofinal.databinding.FragmentNovoLivroBinding
-import pt.ipg.trabalhofinal.ContentProviderApp
 
 class FragmentNovoLivro : Fragment() {
     private var _binding: FragmentNovoLivroBinding? = null

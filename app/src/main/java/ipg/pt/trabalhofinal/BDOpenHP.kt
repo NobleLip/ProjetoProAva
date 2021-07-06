@@ -1,4 +1,4 @@
-package pt.ipg.trabalhofinal
+package ipg.pt.trabalhofinal
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

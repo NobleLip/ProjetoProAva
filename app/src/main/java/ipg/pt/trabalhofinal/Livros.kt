@@ -3,7 +3,6 @@ package ipg.pt.trabalhofinal
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
-import pt.ipg.trabalhofinal.TabelaLivros
 
 
 data class Livros(var id: Long = -1, var Nome: String, var Avalia: String, var Tipo: String) {

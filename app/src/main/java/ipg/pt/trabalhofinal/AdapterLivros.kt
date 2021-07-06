@@ -1,4 +1,5 @@
-package pt.ipg.trabalhofinal
+package ipg.pt.trabalhofinal
+
 
 import android.database.Cursor
 import android.view.View

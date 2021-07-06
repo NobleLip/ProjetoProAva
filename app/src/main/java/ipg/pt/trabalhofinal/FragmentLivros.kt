@@ -13,9 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipg.pt.trabalhofinal.databinding.FragmentLivrosBinding
-import pt.ipg.trabalhofinal.AdapterLivros
-import pt.ipg.trabalhofinal.ContentProviderApp
-import pt.ipg.trabalhofinal.TabelaLivros
+
 
 class FragmentLivros : Fragment() {
 
