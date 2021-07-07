@@ -21,7 +21,7 @@
         android:layout_gravity="bottom|start"
         android:layout_marginStart="20sp"
         android:layout_marginLeft="20sp"
-        android:text="@string/adicionar_pais" />
+        android:text="@string/adicionar_pessoa" />
 
     <Button
         android:id="@+id/buttonHomePessoa"

@@ -38,4 +38,25 @@
     <string name="Necessario_AvaPre">Adicionar Avaliação do Preço </string>
     <string name="Necessario_Pre">Adicionar Preço </string>
     <string name="ErroAdicionarPais">Erro ao Adicionar Pais</string>
+
+    <string name="nome">Nome:</string>
+    <string name="morada">Morada:</string>
+    <string name="data_nas">Data Nas.:</string>
+    <string name="cc">CC:</string>
+    <string name="contacto">Contacto:</string>
+    <string name="vacinas">Vacinas:</string>
+    <string name="numero_de_vacinas">Numero de Vacinas</string>
+    <string name="contacto_pessoal">Contacto Pessoal</string>
+    <string name="cart_o_de_cidad_o">Cartão de Cidadão</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="morada_atual">Morada Atual</string>
+    <string name="nome_da_pessoa">Nome da Pessoa</string>
+
+    <string name="Necessario_NomePessoa">Adicionar Nome da Pessoa </string>
+    <string name="Necessario_Morada">Adicionar Morada </string>
+    <string name="Necessario_Data">Adicionar Data Nascimento </string>
+    <string name="Necessario_CC">Adicionar Cartão de Cidadão </string>
+    <string name="Necessario_Contacto">Adicionar Contacto </string>
+    <string name="Necessario_NumVacina">Adicionar Numero de Vacinas </string>
+    <string name="ErroAdicionarPessoa">Erro ao Adicionar Pessoa</string>
 </resources>

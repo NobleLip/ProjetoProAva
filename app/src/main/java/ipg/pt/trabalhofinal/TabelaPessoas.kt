@@ -44,5 +44,6 @@ class TabelaPessoas(db: SQLiteDatabase) {
         const val CC = "CarCida"
         const val CONTACTO = "contacto"
         const val NUM_VACINAS = "Numero_Vacinas" //Numero de Vacinas Tomadas
+        val TODOS_CAMPOS = arrayOf(BaseColumns._ID, NOME_PESSOA, DATA_NASCIMENTO, MORADA, CC, CONTACTO, NUM_VACINAS)
     }
 }

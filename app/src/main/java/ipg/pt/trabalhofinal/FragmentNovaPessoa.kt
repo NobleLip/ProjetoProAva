@@ -5,55 +5,118 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import ipg.pt.trabalhofinal.databinding.FragmentNovaPessoaBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentNovaPessoa.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentNovaPessoa : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentNovaPessoaBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+    private lateinit var editTextNome: EditText
+    private lateinit var editTextMorada: EditText
+    private lateinit var editTextDataNascimento: EditText
+    private lateinit var editTextCC: EditText
+    private lateinit var editTextContacto: EditText
+    private lateinit var editTextNumVacinas: EditText
+
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Dados.fragment = this
+
+        _binding = FragmentNovaPessoaBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        editTextNome = view.findViewById(R.id.editTextPessoaNome)
+        editTextMorada = view.findViewById(R.id.editTextPessoaMorada)
+        editTextDataNascimento = view.findViewById(R.id.editTextDataNascimento)
+        editTextCC= view.findViewById(R.id.editTextPessoaCC)
+        editTextContacto = view.findViewById(R.id.editTextPessoaContacto)
+        editTextNumVacinas = view.findViewById(R.id.editTextPessoaNumPessoa)
+
+        binding.buttonAdicionarPessoa.setOnClickListener {
+            AdicionaPessoa()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nova_pessoa, container, false)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentNovaPessoa.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentNovaPessoa().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun navegaPessoas() {
+        findNavController().navigate(R.id.action_fragmentNovaPessoa_to_fragmentPessoas)
+
+    }
+
+    fun AdicionaPessoa() {
+        val Nome = editTextNome.text.toString()
+        if (Nome.isEmpty()) {
+            editTextNome.setError(getString(R.string.Necessario_NomePessoa))
+            return
+        }
+
+        val Morada = editTextMorada.text.toString()
+        if (Morada.isEmpty()) {
+            editTextMorada.setError(getString(R.string.Necessario_Morada))
+            return
+        }
+
+        val DataNascimento = editTextDataNascimento.text.toString()
+        if (DataNascimento.isEmpty()) {
+            editTextDataNascimento.setError(getString(R.string.Necessario_Data))
+            return
+        }
+
+        val CC = editTextCC.text.toString()
+        if (CC.isEmpty()) {
+            editTextCC.setError(getString(R.string.Necessario_CC))
+            return
+        }
+
+        val Contacto = editTextContacto.text.toString()
+        if (Contacto.isEmpty()) {
+            editTextContacto.setError(getString(R.string.Necessario_Contacto))
+            return
+        }
+
+        val NumVacina = editTextNumVacinas.text.toString()
+        if (NumVacina.isEmpty()) {
+            editTextNumVacinas.setError(getString(R.string.Necessario_NumVacina))
+            return
+        }
+
+
+        val pessoa = Pessoas(
+            Nome = Nome, DataNascimento = DataNascimento, Morada = Morada, CarCida = CC,
+            Contacto = Contacto, Numero_Vacinas = NumVacina)
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderApp.ENDERECO_PESSOAS,
+            pessoa.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                editTextNome,
+                getString(R.string.ErroAdicionarPessoa),
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        navegaPessoas()
     }
 }
