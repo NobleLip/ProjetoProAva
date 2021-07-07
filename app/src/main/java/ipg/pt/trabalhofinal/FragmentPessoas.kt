@@ -75,7 +75,7 @@ class FragmentPessoas: Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
     }
 
     fun navegaEditDeletePessoa(){
-        //findNavController().navigate(R.id.action_fragmentPaises_to_fragmentEditDeleteLivro)
+        findNavController().navigate(R.id.action_fragmentPessoas_to_fragmentEditDeletePessoa)
     }
 
 

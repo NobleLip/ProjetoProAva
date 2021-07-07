@@ -1,14 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FragmentEditDeletePessoa">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEditPessoaNome"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="@string/nome_da_pessoa"
+            android:inputType="textPersonName" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextEditPessoaMorada"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="@string/morada_atual"
+                android:inputType="textPersonName" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextEditDataNascimento"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:hint="@string/data_de_nascimento"
+                    android:inputType="datetime" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="167dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextEditPessoaCC"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="@string/cart_o_de_cidad_o"
+                        android:inputType="phone" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextEditPessoaContacto"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:hint="@string/contacto_pessoal"
+                            android:inputType="phone" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editTextEditPessoaNumPessoa"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:hint="@string/numero_de_vacinas"
+                                android:inputType="phone" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/buttonEditPessoa"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="71dp"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/editar_pais" />
+
+                <Button
+                    android:id="@+id/buttonEliminarPessoa"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="71dp"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/eliminar" />
+
+            </LinearLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
