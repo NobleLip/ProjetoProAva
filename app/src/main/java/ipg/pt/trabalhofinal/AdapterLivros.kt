@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ipg.pt.trabalhofinal.R
+import ipg.pt.trabalhofinal.databinding.FragmentLivrosBinding
 
 
 class AdapterLivros(val fragment: FragmentLivros) : RecyclerView.Adapter<AdapterLivros.ViewHolderLivros>() {
@@ -46,10 +48,12 @@ class AdapterLivros(val fragment: FragmentLivros) : RecyclerView.Adapter<Adapter
         private fun seleciona() {
             selecionado = this
             Dados.livroSelecionado = livro
+            itemView.setBackgroundResource(R.color.gray)
         }
 
         private fun desSeleciona() {
             selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
         }
 
         companion object {
@@ -72,4 +76,5 @@ class AdapterLivros(val fragment: FragmentLivros) : RecyclerView.Adapter<Adapter
     override fun getItemCount(): Int {
         return cursor?.count ?: 0
     }
+
 }

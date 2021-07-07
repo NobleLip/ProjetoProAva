@@ -60,6 +60,10 @@ class FragmentPaises: Fragment() , LoaderManager.LoaderCallbacks<Cursor> {
         binding.buttonHomePais.setOnClickListener {
             navegaHomePais()
         }
+
+        binding.buttonEdit2.setOnClickListener {
+            navegaEditDeletePais()
+        }
     }
 
     fun navegaNovoPais() {
@@ -70,14 +74,9 @@ class FragmentPaises: Fragment() , LoaderManager.LoaderCallbacks<Cursor> {
         findNavController().navigate(R.id.action_fragmentPaises_to_fragmentHomee)
     }
 
-    fun navegaAlterarPais() {
-        //todo: navegar para o fragmento da edição de um enfermeiro
+    fun navegaEditDeletePais(){
+        //findNavController().navigate(R.id.action_fragmentPaises_to_fragmentEditDeleteLivro)
     }
-
-    fun navegaEliminarPais() {
-        //todo: navegar para o fragmento para confirmar eliminação de um enfermeiro
-    }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

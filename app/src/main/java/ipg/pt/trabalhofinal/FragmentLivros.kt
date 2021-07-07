@@ -59,6 +59,11 @@ class FragmentLivros : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         binding.buttonHome.setOnClickListener {
             navegaHome()
         }
+
+        binding.buttonEdit.setOnClickListener {
+            navegaEditDeleteLivro()
+        }
+
     }
 
     fun navegaNovoLivro() {
@@ -69,12 +74,8 @@ class FragmentLivros : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         findNavController().navigate(R.id.action_fragmentLivros_to_fragmentHomee)
     }
 
-    fun navegaAlterarLivro() {
-        //todo: navegar para o fragmento da edição de um enfermeiro
-    }
-
-    fun navegaEliminarLivro() {
-        //todo: navegar para o fragmento para confirmar eliminação de um enfermeiro
+    fun navegaEditDeleteLivro(){
+        findNavController().navigate(R.id.action_fragmentLivros_to_fragmentEditDeleteLivro)
     }
 
 

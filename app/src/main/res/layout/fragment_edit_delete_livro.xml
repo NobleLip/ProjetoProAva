@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextLivrosEditNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nome_do_livro"
+            android:inputType="textPersonName" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextLivrosEditAvalia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/avalia_o"
+                android:inputType="phone" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextLivrosTipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/tipo"
+                    android:inputType="textLongMessage" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="167dp">
+
+                    <Button
+                        android:id="@+id/buttonEditLivro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="71dp"
+                        android:layout_gravity="center|start"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/editar_livro"
+                        style="?android:attr/buttonBarButtonStyle" />
+
+                    <Button
+                        android:id="@+id/buttonEliminarLivro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="71dp"
+                        android:layout_gravity="center|start"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/eliminar"
+                        style="?android:attr/buttonBarButtonStyle" />
+
+                </LinearLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

@@ -51,10 +51,12 @@ class AdapterPessoa(val fragment: FragmentPessoas) : RecyclerView.Adapter<Adapte
         private fun seleciona() {
             selecionado = this
             Dados.pessoaSelecionada = pessoa
+            itemView.setBackgroundResource(R.color.gray)
         }
 
         private fun desSeleciona() {
             selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
         }
 
         companion object {

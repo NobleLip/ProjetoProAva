@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_fragmentLivros_to_fragmentNovoLivro"
             app:destination="@id/fragmentNovoLivro" />
+        <action
+            android:id="@+id/action_fragmentLivros_to_fragmentEditDeleteLivro"
+            app:destination="@id/fragmentEditDeleteLivro" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPaises"
@@ -28,6 +31,9 @@
         <action
             android:id="@+id/action_fragmentPaises_to_fragmentNovoPais"
             app:destination="@id/fragmentNovoPais" />
+        <action
+            android:id="@+id/action_fragmentPaises_to_fragmentEditDeletePais"
+            app:destination="@id/fragmentEditDeletePais" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPessoas"
@@ -40,6 +46,9 @@
         <action
             android:id="@+id/action_fragmentPessoas_to_fragmentNovaPessoa"
             app:destination="@id/fragmentNovaPessoa" />
+        <action
+            android:id="@+id/action_fragmentPessoas_to_fragmentEditDeletePessoa"
+            app:destination="@id/fragmentEditDeletePessoa" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHomee"
@@ -81,6 +90,33 @@
         tools:layout="@layout/fragment_nova_pessoa" >
         <action
             android:id="@+id/action_fragmentNovaPessoa_to_fragmentPessoas"
+            app:destination="@id/fragmentPessoas" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEditDeleteLivro"
+        android:name="ipg.pt.trabalhofinal.FragmentEditDeleteLivro"
+        android:label="fragment_edit_delete_livro"
+        tools:layout="@layout/fragment_edit_delete_livro" >
+        <action
+            android:id="@+id/action_fragmentEditDeleteLivro_to_fragmentLivros"
+            app:destination="@id/fragmentLivros" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEditDeletePais"
+        android:name="ipg.pt.trabalhofinal.FragmentEditDeletePais"
+        android:label="fragment_edit_delete_pais"
+        tools:layout="@layout/fragment_edit_delete_pais" >
+        <action
+            android:id="@+id/action_fragmentEditDeletePais_to_fragmentPaises"
+            app:destination="@id/fragmentPaises" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEditDeletePessoa"
+        android:name="ipg.pt.trabalhofinal.FragmentEditDeletePessoa"
+        android:label="fragment_edit_delete_pessoa"
+        tools:layout="@layout/fragment_edit_delete_pessoa" >
+        <action
+            android:id="@+id/action_fragmentEditDeletePessoa_to_fragmentPessoas"
             app:destination="@id/fragmentPessoas" />
     </fragment>
 </navigation>

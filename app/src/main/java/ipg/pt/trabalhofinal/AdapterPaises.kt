@@ -46,10 +46,12 @@ class AdapterPaises(val fragment: FragmentPaises) : RecyclerView.Adapter<Adapter
         private fun seleciona() {
             selecionado = this
             Dados.paisSelecionado = pais
+            itemView.setBackgroundResource(R.color.gray)
         }
 
         private fun desSeleciona() {
             selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
         }
 
         companion object {

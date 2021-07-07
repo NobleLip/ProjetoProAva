@@ -59,4 +59,11 @@
     <string name="Necessario_Contacto">Adicionar Contacto </string>
     <string name="Necessario_NumVacina">Adicionar Numero de Vacinas </string>
     <string name="ErroAdicionarPessoa">Erro ao Adicionar Pessoa</string>
+    <string name="editar">Editar</string>
+    <string name="erro_eliminar_livro">Erro ao Eliminar Livro</string>
+    <string name="livro_eliminado_sucesso">Livro Eliminado</string>
+    <string name="erro_alterar_livro">Erro Ao Editar Livro</string>
+    <string name="livro_guardado_sucesso">Editado Com sucesso</string>
+    <string name="editar_livro">Editar Livro</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

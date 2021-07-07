@@ -60,6 +60,10 @@ class FragmentPessoas: Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         binding.buttonHomePessoa.setOnClickListener {
             navegaHomePessoa()
         }
+
+        binding.buttonEdit3.setOnClickListener {
+            navegaEditDeletePessoa()
+        }
     }
 
     fun navegaNovoPessoa() {
@@ -70,12 +74,8 @@ class FragmentPessoas: Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         findNavController().navigate(R.id.action_fragmentPessoas_to_fragmentHomee)
     }
 
-    fun navegaAlterarPessoa() {
-        //todo: navegar para o fragmento da edição de um enfermeiro
-    }
-
-    fun navegaEliminarPessoa() {
-        //todo: navegar para o fragmento para confirmar eliminação de um enfermeiro
+    fun navegaEditDeletePessoa(){
+        //findNavController().navigate(R.id.action_fragmentPaises_to_fragmentEditDeleteLivro)
     }
 
 
