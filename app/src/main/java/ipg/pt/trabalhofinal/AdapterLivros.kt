@@ -5,14 +5,12 @@ import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import ipg.pt.trabalhofinal.Dados
-import ipg.pt.trabalhofinal.FragmentLivros
-import ipg.pt.trabalhofinal.Livros
 import ipg.pt.trabalhofinal.R
 
 
-class AdapterLivros (val fragment: FragmentLivros) : RecyclerView.Adapter<AdapterLivros.ViewHolderLivros>() {
+class AdapterLivros(val fragment: FragmentLivros) : RecyclerView.Adapter<AdapterLivros.ViewHolderLivros>() {
 
      var cursor: Cursor? = null
         get() = field
@@ -36,7 +34,7 @@ class AdapterLivros (val fragment: FragmentLivros) : RecyclerView.Adapter<Adapte
             this.livro = livro
 
             textViewNome.text = livro.Nome
-            textViewAva.text = livro.Avalia.toString()
+            textViewAva.text = livro.Avalia
             textViewTipo.text = livro.Tipo
         }
 
@@ -55,7 +53,7 @@ class AdapterLivros (val fragment: FragmentLivros) : RecyclerView.Adapter<Adapte
         }
 
         companion object {
-            var selecionado : ViewHolderLivros? = null
+            var selecionado : ViewHolderLivros? = null;
         }
     }
 

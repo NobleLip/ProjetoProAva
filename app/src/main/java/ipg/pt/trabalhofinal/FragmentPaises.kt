@@ -1,59 +1,108 @@
 package ipg.pt.trabalhofinal
 
+import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import ipg.pt.trabalhofinal.databinding.FragmentPaisesBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentPaises.newInstance] factory method to
- * create an instance of this fragment.
- */
-class FragmentPaises : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class FragmentPaises: Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var paisesViewModel: PaisesViewModel
+    private var _binding: FragmentPaisesBinding? = null
+
+    private var adapterPaises: AdapterPaises? = null
+
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Dados.fragment = this
+        (activity as MainActivity)
+        paisesViewModel =
+            ViewModelProvider(this).get(PaisesViewModel::class.java)
+
+        _binding = FragmentPaisesBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerViewPaises = view.findViewById<RecyclerView>(R.id.RecyclerPaises)
+        adapterPaises = AdapterPaises(this)
+        recyclerViewPaises.adapter = adapterPaises
+        recyclerViewPaises.layoutManager = LinearLayoutManager(requireContext())
+
+        //val loaderManager = LoaderManager.getInstance(this)
+
+        //loaderManager.initLoader(ID_LOADER_MANAGER_PAISES, null, this)
+
+        binding.buttonAdicionarPais.setOnClickListener {
+            navegaNovoPais()
+        }
+
+        binding.buttonHomePais.setOnClickListener {
+            navegaHomePais()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_paises, container, false)
+    fun navegaNovoPais() {
+        findNavController().navigate(R.id.action_fragmentPaises_to_fragmentNovoPais)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentPaises.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentPaises().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun navegaHomePais(){
+        findNavController().navigate(R.id.action_fragmentPaises_to_fragmentHomee)
+    }
+
+    fun navegaAlterarPais() {
+        //todo: navegar para o fragmento da edição de um enfermeiro
+    }
+
+    fun navegaEliminarPais() {
+        //todo: navegar para o fragmento para confirmar eliminação de um enfermeiro
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+        return CursorLoader(
+            requireContext(),
+            ContentProviderApp.ENDERECO_PAISES,
+            TabelaPaises.TODOS_CAMPOS,
+            null, null,
+            TabelaPaises.NOME
+        )
+    }
+
+    fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+        adapterPaises!!.cursor = data
+    }
+
+    fun onLoaderReset(loader: Loader<Cursor>) {
+        adapterPaises!!.cursor = null
+    }
+
+    companion object{
+        const val ID_LOADER_MANAGER_PAISES= 0
     }
 }
+

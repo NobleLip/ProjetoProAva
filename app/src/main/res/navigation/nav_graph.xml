@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_fragmentPaises_to_fragmentHomee"
             app:destination="@id/fragmentHomee" />
+        <action
+            android:id="@+id/action_fragmentPaises_to_fragmentNovoPais"
+            app:destination="@id/fragmentNovoPais" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPessoas"
@@ -34,6 +37,9 @@
         <action
             android:id="@+id/action_fragmentPessoas_to_fragmentHomee"
             app:destination="@id/fragmentHomee" />
+        <action
+            android:id="@+id/action_fragmentPessoas_to_fragmentNovaPessoa"
+            app:destination="@id/fragmentNovaPessoa" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHomee"
@@ -58,5 +64,23 @@
         <action
             android:id="@+id/action_fragmentNovoLivro_to_fragmentLivros"
             app:destination="@id/fragmentLivros" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentNovoPais"
+        android:name="ipg.pt.trabalhofinal.FragmentNovoPais"
+        android:label="fragment_novo_pais"
+        tools:layout="@layout/fragment_novo_pais" >
+        <action
+            android:id="@+id/action_fragmentNovoPais_to_fragmentPaises"
+            app:destination="@id/fragmentPaises" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentNovaPessoa"
+        android:name="ipg.pt.trabalhofinal.FragmentNovaPessoa"
+        android:label="fragment_nova_pessoa"
+        tools:layout="@layout/fragment_nova_pessoa" >
+        <action
+            android:id="@+id/action_fragmentNovaPessoa_to_fragmentPessoas"
+            app:destination="@id/fragmentPessoas" />
     </fragment>
 </navigation>

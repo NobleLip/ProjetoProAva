@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="15dp"
     tools:context=".FragmentPaises">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,7 +11,25 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerPaises"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="702dp"
         android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/buttonAdicionarPais"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="20sp"
+        android:layout_marginLeft="20sp"
+        android:text="@string/adicionar_pais" />
+
+    <Button
+        android:id="@+id/buttonHomePais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20sp"
+        android:layout_marginRight="20sp"
+        android:text="@string/home" />
 
 </FrameLayout>

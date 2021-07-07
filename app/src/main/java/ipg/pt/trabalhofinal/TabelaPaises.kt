@@ -40,8 +40,9 @@ class TabelaPaises(db: SQLiteDatabase) {
     companion object{
         const val NOME_TABLE = "Pais"
         const val NOME = "Nome"
-        const val AVALIAPRE = "Avalia_Preco" //Avalia se e possivel visitar
+        const val AVALIAPRE = "Avalia_Preco" //Avalia preco e se e possivel visitar
         const val PRE = "Preco"
+        val TODOS_CAMPOS = arrayOf(BaseColumns._ID, NOME, AVALIAPRE, PRE)
     }
 
 }

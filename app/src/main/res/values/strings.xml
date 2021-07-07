@@ -29,4 +29,13 @@
     <string name="Necessario_TipoLivro">Adicionar Tipo do Livro </string>
     <string name="ErroAdicionarLivro">Erro ao Adicionar Livro </string>
     <string name="adicionar_livro">Adicionar Livro</string>
+    <string name="home">Home</string>
+    <string name="nome_pais">Nome Pais</string>
+    <string name="pre_o">Preço</string>
+    <string name="avalia_o_do_pre_o">Avaliação do Preço</string>
+
+    <string name="Necessario_NomePais">Adicionar Nome do Pais </string>
+    <string name="Necessario_AvaPre">Adicionar Avaliação do Preço </string>
+    <string name="Necessario_Pre">Adicionar Preço </string>
+    <string name="ErroAdicionarPais">Erro ao Adicionar Pais</string>
 </resources>

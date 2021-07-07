@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 
 
-data class Paises (var id: Long = -1, var Nome: String, var AvaliaPre: Int, var Preco: Float) {
+data class Paises(var id: Long = -1, var Nome: String, var AvaliaPre: String, var Preco: String) {
 
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
@@ -28,8 +28,8 @@ data class Paises (var id: Long = -1, var Nome: String, var AvaliaPre: Int, var 
 
             val id = cursor.getLong(posCampoId)
             val Nome = cursor.getString(posCampoNome)
-            val AvaliaPre = cursor.getInt(posCampoAvaliaPre)
-            val Preco = cursor.getFloat(posCampoPre)
+            val AvaliaPre = cursor.getString(posCampoAvaliaPre)
+            val Preco = cursor.getString(posCampoPre)
 
             return Paises(id, Nome, AvaliaPre, Preco)
         }

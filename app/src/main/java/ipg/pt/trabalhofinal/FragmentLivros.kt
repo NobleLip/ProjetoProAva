@@ -30,7 +30,7 @@ class FragmentLivros : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         Dados.fragment = this
-
+        (activity as MainActivity)
         livrosViewModel =
             ViewModelProvider(this).get(LivrosViewModel::class.java)
 
@@ -55,10 +55,18 @@ class FragmentLivros : Fragment() {
         binding.buttonAdicionar.setOnClickListener {
             navegaNovoLivro()
         }
+
+        binding.buttonHome.setOnClickListener {
+            navegaHome()
+        }
     }
 
     fun navegaNovoLivro() {
         findNavController().navigate(R.id.action_fragmentLivros_to_fragmentNovoLivro)
+    }
+
+    fun navegaHome(){
+        findNavController().navigate(R.id.action_fragmentLivros_to_fragmentHomee)
     }
 
     fun navegaAlterarLivro() {
