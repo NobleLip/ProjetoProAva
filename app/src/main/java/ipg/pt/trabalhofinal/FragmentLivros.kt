@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
@@ -49,7 +50,6 @@ class FragmentLivros : Fragment() {
         recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
 
         //val loaderManager = LoaderManager.getInstance(this)
-
         //loaderManager.initLoader(ID_LOADER_MANAGER_LIVROS, null, this)
 
         binding.buttonAdicionar.setOnClickListener {
