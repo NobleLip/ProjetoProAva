@@ -66,4 +66,10 @@
     <string name="livro_guardado_sucesso">Editado Com sucesso</string>
     <string name="editar_livro">Editar Livro</string>
     <string name="eliminar">Eliminar</string>
+    <string name="editar_pais">Editar Pais</string>
+    <string name="erro_eliminar_pais">Erro ao Eliminar Pais</string>
+    <string name="pais_eliminado_sucesso">Sucesso Ao Eliminar Pais</string>
+    <string name="erro_alterar_pais">Erro ao Alterar Pais</string>
+    <string name="pais_guardado_sucesso">Sucesso ao Editar Pais</string>
+    <string name="SelecinarDaLista">Selecionar um Item da Lista</string>
 </resources>

@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FragmentEditDeletePais">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEditPaisesNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nome_pais"
+            android:inputType="textPersonName" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextEditPaisesPreco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/pre_o"
+                android:inputType="phone" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPaisesEditAvaliaPre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/avalia_o_do_pre_o"
+                    android:inputType="number" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="167dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/buttonEditPais"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="71dp"
+                            android:layout_gravity="center|start"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/editar_pais" />
+
+                        <Button
+                            android:id="@+id/buttonEliminarPais"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="71dp"
+                            android:layout_gravity="center|start"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/eliminar" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

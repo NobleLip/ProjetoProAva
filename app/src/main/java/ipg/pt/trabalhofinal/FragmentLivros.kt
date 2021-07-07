@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -61,7 +62,15 @@ class FragmentLivros : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
         }
 
         binding.buttonEdit.setOnClickListener {
-            navegaEditDeleteLivro()
+            if(Dados.livroSelecionado != null){
+                navegaEditDeleteLivro()
+            }else{
+                Toast.makeText(
+                    requireContext(),
+                    R.string.SelecinarDaLista,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
 
     }

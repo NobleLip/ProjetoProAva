@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -62,7 +63,15 @@ class FragmentPaises: Fragment() , LoaderManager.LoaderCallbacks<Cursor> {
         }
 
         binding.buttonEdit2.setOnClickListener {
-            navegaEditDeletePais()
+            if(Dados.paisSelecionado != null){
+                navegaEditDeletePais()
+            }else{
+                Toast.makeText(
+                    requireContext(),
+                    R.string.SelecinarDaLista,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
@@ -75,7 +84,7 @@ class FragmentPaises: Fragment() , LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun navegaEditDeletePais(){
-        //findNavController().navigate(R.id.action_fragmentPaises_to_fragmentEditDeleteLivro)
+        findNavController().navigate(R.id.action_fragmentPaises_to_fragmentEditDeletePais)
     }
 
     override fun onDestroyView() {

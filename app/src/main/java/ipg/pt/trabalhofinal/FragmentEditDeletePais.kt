@@ -1,59 +1,172 @@
 package ipg.pt.trabalhofinal
 
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
+import ipg.pt.trabalhofinal.databinding.FragmentEditDeletePaisBinding
+import ipg.pt.trabalhofinal.databinding.FragmentPaisesBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class FragmentEditDeletePais : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+    private lateinit var editTextNome: EditText
+    private lateinit var editTextPre: EditText
+    private lateinit var editTextAvaPre: EditText
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentEditDeletePais.newInstance] factory method to
- * create an instance of this fragment.
- */
-class FragmentEditDeletePais : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentEditDeletePaisBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_delete_pais, container, false)
+        Dados.fragment = this
+        (activity as MainActivity)
+        _binding = FragmentEditDeletePaisBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        return root
+        //return inflater.inflate(R.layout.fragment_edit_delete_pais, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        editTextNome = view.findViewById(R.id.editTextEditPaisesNome)
+        editTextPre= view.findViewById(R.id.editTextEditPaisesPreco)
+        editTextAvaPre = view.findViewById(R.id.editTextPaisesEditAvaliaPre)
+
+        LoaderManager.getInstance(this)
+            .initLoader(ID_LOADER_MANAGER_PAISES, null, this)
+
+        editTextNome.setText(Dados.paisSelecionado!!.Nome)
+        editTextPre.setText(Dados.paisSelecionado!!.Preco)
+        editTextAvaPre.setText(Dados.paisSelecionado!!.AvaliaPre)
+
+        binding.buttonEditPais.setOnClickListener {
+            guardar()
+        }
+        binding.buttonEliminarPais.setOnClickListener {
+            elimina()
+        }
+    }
+
+    fun navegaListaPaises() {
+        findNavController().navigate(R.id.action_fragmentEditDeletePais_to_fragmentPaises)
+    }
+
+    fun elimina() {
+        val uriPais = Uri.withAppendedPath(
+            ContentProviderApp.ENDERECO_PAISES,
+            Dados.paisSelecionado!!.id.toString()
+        )
+
+        val registos = activity?.contentResolver?.delete(
+            uriPais,
+            null,
+            null
+        )
+
+        if (registos != 1) {
+            Toast.makeText(
+                requireContext(),
+                R.string.erro_eliminar_pais,
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        Toast.makeText(
+            requireContext(),
+            R.string.pais_eliminado_sucesso,
+            Toast.LENGTH_LONG
+        ).show()
+        navegaListaPaises()
+    }
+
+    fun guardar() {
+        val Nome = editTextNome.text.toString()
+        if (Nome.isEmpty()) {
+            editTextNome.setError(getString(R.string.Necessario_NomePais))
+            editTextNome.requestFocus()
+            return
+        }
+
+        val Pre = editTextPre.text.toString()
+        if (Pre.isEmpty()) {
+            editTextPre.setError(getString(R.string.Necessario_Pre))
+            editTextPre.requestFocus()
+            return
+        }
+
+        val AvaliaPre = editTextAvaPre.text.toString()
+        if (AvaliaPre.isEmpty()) {
+            editTextAvaPre.setError(getString(R.string.Necessario_AvaPre))
+            editTextAvaPre.requestFocus()
+            return
+        }
+
+        val pais = Dados.paisSelecionado!!
+        pais.Nome = Nome
+        pais.AvaliaPre = AvaliaPre
+        pais.Preco = Pre
+
+        val uriPais = Uri.withAppendedPath(
+            ContentProviderApp.ENDERECO_PAISES,
+            pais.id.toString()
+        )
+
+        val registos = activity?.contentResolver?.update(
+            uriPais,
+            pais.toContentValues(),
+            null,
+            null
+        )
+
+        if (registos != 1) {
+            Toast.makeText(
+                requireContext(),
+                R.string.erro_alterar_pais,
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        Toast.makeText(
+            requireContext(),
+            R.string.pais_guardado_sucesso,
+            Toast.LENGTH_LONG
+        ).show()
+        navegaListaPaises()
+    }
+
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentEditDeletePais.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentEditDeletePais().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        const val ID_LOADER_MANAGER_PAISES= 0
+    }
+
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+        return CursorLoader(
+            requireContext(),
+            ContentProviderApp.ENDERECO_PAISES,
+            TabelaPaises.TODOS_CAMPOS,
+            null, null,
+            TabelaPaises.NOME
+        )
+    }
+
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun onLoaderReset(loader: Loader<Cursor>) {
+        //TODO("Not yet implemented")
     }
 }
