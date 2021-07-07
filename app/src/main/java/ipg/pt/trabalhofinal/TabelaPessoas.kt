@@ -9,10 +9,12 @@ class TabelaPessoas(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABLE ( ${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $NOME_PESSOA TEXT NOT NULL, $DATA_NASCIMENTO INT NOT NULL, $CC TEXT NOT NULL, $MORADA TEXT NOT NULL, $CONTACTO TEXT NOT NULL, $NUM_VACINAS INT NOT NULL)")
+        db.execSQL("CREATE TABLE $NOME_TABLE ( ${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $NOME_PESSOA TEXT NOT NULL, $DATA_NASCIMENTO TEXT NOT NULL, $MORADA TEXT NOT NULL, $CC TEXT NOT NULL, $CONTACTO TEXT NOT NULL, $NUM_VACINAS TEXT NOT NULL)")
 
     }
-
+    fun drop(){
+        db.execSQL("DROP TABLE ${TabelaLivros.NOME_TABLE}")
+    }
     fun insert(values: ContentValues): Long {
         return db.insert(NOME_TABLE , null, values)
     }

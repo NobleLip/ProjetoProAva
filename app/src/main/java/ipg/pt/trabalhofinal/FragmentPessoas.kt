@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ipg.pt.trabalhofinal.databinding.FragmentPessoasBinding
 
 
-class FragmentPessoas: Fragment() {
+class FragmentPessoas: Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
 
     private lateinit var pessoasViewModel: PessoasViewModel
     private var _binding: FragmentPessoasBinding? = null
@@ -48,9 +49,9 @@ class FragmentPessoas: Fragment() {
         recyclerViewPessoas.adapter = adapterPessoas
         recyclerViewPessoas.layoutManager = LinearLayoutManager(requireContext())
 
-        //val loaderManager = LoaderManager.getInstance(this)
+        val loaderManager = LoaderManager.getInstance(this)
 
-        //loaderManager.initLoader(ID_LOADER_MANAGER_PAISES, null, this)
+        loaderManager.initLoader(ID_LOADER_MANAGER_PESSOAS, null, this)
 
         binding.buttonAdicionarPessoa.setOnClickListener {
             navegaNovoPessoa()
@@ -83,26 +84,26 @@ class FragmentPessoas: Fragment() {
         _binding = null
     }
 
-    fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            ContentProviderApp.ENDERECO_PAISES,
+            ContentProviderApp.ENDERECO_PESSOAS,
             TabelaPessoas.TODOS_CAMPOS,
             null, null,
             TabelaPessoas.NOME_PESSOA
         )
     }
 
-    fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         adapterPessoas!!.cursor = data
     }
 
-    fun onLoaderReset(loader: Loader<Cursor>) {
+    override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterPessoas!!.cursor = null
     }
 
     companion object{
-        const val ID_LOADER_MANAGER_PAISES= 0
+        const val ID_LOADER_MANAGER_PESSOAS= 0
     }
 }
 

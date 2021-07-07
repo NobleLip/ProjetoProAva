@@ -33,13 +33,16 @@
 
     <TextView
         android:id="@+id/textViewLivroTipo"
-        android:layout_width="126dp"
+        android:layout_width="wrap_content"
         android:layout_height="51dp"
+        android:layout_marginBottom="80dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewPreStar"
-        app:layout_constraintTop_toTopOf="@+id/textViewPreStar"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLivroNome"
         tools:text="Estilo de Vida" />
 
     <TextView

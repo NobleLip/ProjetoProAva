@@ -37,10 +37,10 @@ class AdapterPessoa(val fragment: FragmentPessoas) : RecyclerView.Adapter<Adapte
 
             textViewNome.text = pessoa.Nome
             textViewMorada.text = pessoa.Morada
-            textViewData.text = pessoa.DataNascimento.toString()
+            textViewData.text = pessoa.DataNascimento
             textViewCC.text = pessoa.CarCida
             textViewContacto.text = pessoa.Contacto
-            textViewVacinas.text = pessoa.Numero_Vacinas.toString()
+            textViewVacinas.text = pessoa.Numero_Vacinas
         }
 
         override fun onClick(v: View?) {

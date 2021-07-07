@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ipg.pt.trabalhofinal.databinding.FragmentPaisesBinding
 
 
-class FragmentPaises: Fragment() {
+class FragmentPaises: Fragment() , LoaderManager.LoaderCallbacks<Cursor> {
 
     private lateinit var paisesViewModel: PaisesViewModel
     private var _binding: FragmentPaisesBinding? = null
@@ -48,9 +49,9 @@ class FragmentPaises: Fragment() {
         recyclerViewPaises.adapter = adapterPaises
         recyclerViewPaises.layoutManager = LinearLayoutManager(requireContext())
 
-        //val loaderManager = LoaderManager.getInstance(this)
+        val loaderManager = LoaderManager.getInstance(this)
 
-        //loaderManager.initLoader(ID_LOADER_MANAGER_PAISES, null, this)
+        loaderManager.initLoader(ID_LOADER_MANAGER_PAISES, null, this)
 
         binding.buttonAdicionarPais.setOnClickListener {
             navegaNovoPais()
@@ -83,7 +84,7 @@ class FragmentPaises: Fragment() {
         _binding = null
     }
 
-    fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
             ContentProviderApp.ENDERECO_PAISES,
@@ -93,11 +94,11 @@ class FragmentPaises: Fragment() {
         )
     }
 
-    fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         adapterPaises!!.cursor = data
     }
 
-    fun onLoaderReset(loader: Loader<Cursor>) {
+    override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterPaises!!.cursor = null
     }
 

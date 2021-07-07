@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ipg.pt.trabalhofinal.databinding.FragmentLivrosBinding
 
 
-class FragmentLivros : Fragment() {
+class FragmentLivros : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
 
     private lateinit var livrosViewModel: LivrosViewModel
     private var _binding: FragmentLivrosBinding? = null
@@ -49,8 +49,8 @@ class FragmentLivros : Fragment() {
         recyclerViewLivros.adapter = adapterLivros
         recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
 
-        //val loaderManager = LoaderManager.getInstance(this)
-        //loaderManager.initLoader(ID_LOADER_MANAGER_LIVROS, null, this)
+        val loaderManager = LoaderManager.getInstance(this)
+        loaderManager.initLoader(ID_LOADER_MANAGER_LIVROS, null, this)
 
         binding.buttonAdicionar.setOnClickListener {
             navegaNovoLivro()
@@ -83,7 +83,7 @@ class FragmentLivros : Fragment() {
         _binding = null
     }
 
-    fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
             ContentProviderApp.ENDERECO_LIVROS,
@@ -93,11 +93,11 @@ class FragmentLivros : Fragment() {
         )
     }
 
-    fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         adapterLivros!!.cursor = data
     }
 
-    fun onLoaderReset(loader: Loader<Cursor>) {
+    override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterLivros!!.cursor = null
     }
 

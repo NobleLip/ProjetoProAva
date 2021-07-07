@@ -12,6 +12,7 @@ class BDOpenHP(context: Context?)
             TabelaLivros(db).cria()
             TabelaPessoas(db).cria()
             TabelaPaises(db).cria()
+
         }
     }
 

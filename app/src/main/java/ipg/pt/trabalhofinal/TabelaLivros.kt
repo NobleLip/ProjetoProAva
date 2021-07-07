@@ -12,6 +12,10 @@ class TabelaLivros(db: SQLiteDatabase) {
 
     }
 
+    fun drop(){
+        db.execSQL("DROP TABLE $NOME_TABLE")
+    }
+
     fun insert(values: ContentValues): Long {
         return db.insert(NOME_TABLE, null, values)
     }

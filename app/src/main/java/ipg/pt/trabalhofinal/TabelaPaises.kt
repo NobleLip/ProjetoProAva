@@ -13,7 +13,9 @@ class TabelaPaises(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE $NOME_TABLE (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $NOME TEXT NOT NULL,  $AVALIAPRE INT NOT NULL, $PRE FLOAT NOT NULL)")
 
     }
-
+    fun drop(){
+        db.execSQL("DROP TABLE ${TabelaLivros.NOME_TABLE}")
+    }
     fun insert(values: ContentValues): Long {
         return db.insert(NOME_TABLE , null, values)
     }
