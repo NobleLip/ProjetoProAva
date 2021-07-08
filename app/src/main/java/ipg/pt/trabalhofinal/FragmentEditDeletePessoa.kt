@@ -36,7 +36,6 @@ class FragmentEditDeletePessoa : Fragment(), LoaderManager.LoaderCallbacks<Curso
         _binding = FragmentEditDeletePessoaBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
-        //return inflater.inflate(R.layout.fragment_edit_delete_pais, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

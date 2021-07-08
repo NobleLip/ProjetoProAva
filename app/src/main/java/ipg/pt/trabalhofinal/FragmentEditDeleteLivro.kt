@@ -34,7 +34,6 @@ class FragmentEditDeleteLivro : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         _binding = FragmentEditDeleteLivroBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
-        //return inflater.inflate(R.layout.fragment_edit_delete_livro, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
