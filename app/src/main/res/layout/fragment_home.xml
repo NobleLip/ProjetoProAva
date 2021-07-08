@@ -72,5 +72,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        tools:layout_editor_absoluteX="57dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/LOGO" />
 </androidx.constraintlayout.widget.ConstraintLayout>
