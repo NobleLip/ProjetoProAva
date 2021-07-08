@@ -85,18 +85,33 @@ class FragmentNovaPessoa : Fragment() {
             editTextCC.setError(getString(R.string.Necessario_CC))
             return
         }
+        if (CC.length < 8 || CC.length > 8){
+            editTextCC.setError(getString(R.string.CCInvalido))
+            return
+        }
+
 
         val Contacto = editTextContacto.text.toString()
         if (Contacto.isEmpty()) {
             editTextContacto.setError(getString(R.string.Necessario_Contacto))
             return
         }
+        if (Contacto.length < 9 || Contacto.length > 9){
+            editTextContacto.setError(getString(R.string.ContactoInvalido))
+            return
+        }
+
 
         val NumVacina = editTextNumVacinas.text.toString()
         if (NumVacina.isEmpty()) {
             editTextNumVacinas.setError(getString(R.string.Necessario_NumVacina))
             return
         }
+        if (NumVacina.toInt() > 2 || NumVacina.toInt() < 0){
+            editTextNumVacinas.setError(getString(R.string.Vacina_Max))
+            return
+        }
+
 
 
         val pessoa = Pessoas(

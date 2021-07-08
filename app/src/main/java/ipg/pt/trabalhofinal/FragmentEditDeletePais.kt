@@ -107,6 +107,12 @@ class FragmentEditDeletePais : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         }
 
         val AvaliaPre = editTextAvaPre.text.toString()
+
+        if (AvaliaPre.toInt() > 5 || AvaliaPre.toInt() < 0){
+            editTextAvaPre.setError(getString(R.string.AvaliaErro))
+            return
+        }
+
         if (AvaliaPre.isEmpty()) {
             editTextAvaPre.setError(getString(R.string.Necessario_AvaPre))
             editTextAvaPre.requestFocus()

@@ -101,6 +101,10 @@ class FragmentEditDeleteLivro : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         }
 
         val Avalia = editTextAva.text.toString()
+        if (Avalia.toInt() > 5 || Avalia.toInt() < 0){
+            editTextAva.setError(getString(R.string.AvaliaErro))
+            return
+        }
         if (Avalia.isEmpty()) {
             editTextAva.setError(getString(R.string.Necessario_AvaLivro))
             editTextAva.requestFocus()

@@ -69,6 +69,10 @@ class FragmentNovoPais : Fragment() {
         }
 
         val AvaliaPre = editTextAvaliaPre.text.toString()
+        if (AvaliaPre.toInt() > 5 || AvaliaPre.toInt() < 0){
+            editTextAvaliaPre.setError(getString(R.string.AvaliaErro))
+            return
+        }
         if (AvaliaPre.isEmpty()) {
             editTextAvaliaPre.setError(getString(R.string.Necessario_AvaPre))
             return

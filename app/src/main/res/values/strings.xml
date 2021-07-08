@@ -76,4 +76,8 @@
     <string name="erro_alterar_pessoa">Erro Editar Pessoa</string>
     <string name="erro_eliminar_pessoa">Erro ao Eliminar Pessoa</string>
     <string name="pessoa_eliminado_sucesso">Pessoa Eliminada Com sucesso</string>
+    <string name="AvaliaErro">Avaliação de 0-5</string>
+    <string name="Vacina_Max">Vacinação Maxima atual de 2 Vacinas</string>
+    <string name="ContactoInvalido">Contacto Invalido</string>
+    <string name="CCInvalido">CC invalido</string>
 </resources>

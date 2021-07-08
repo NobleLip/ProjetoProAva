@@ -63,6 +63,10 @@ class FragmentNovoLivro : Fragment() {
         }
 
         val Avali = editTextAvalia.text.toString()
+        if (Avali.toInt() > 5 || Avali.toInt() < 0){
+            editTextAvalia.setError(getString(R.string.AvaliaErro))
+            return
+        }
         if (Avali.isEmpty()) {
             editTextAvalia.setError(getString(R.string.Necessario_AvaLivro))
             return

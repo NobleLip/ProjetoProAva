@@ -122,6 +122,10 @@ class FragmentEditDeletePessoa : Fragment(), LoaderManager.LoaderCallbacks<Curso
             return
         }
         val CC = editTextCC.text.toString()
+        if (CC.length < 8 || CC.length > 8){
+            editTextCC.setError(getString(R.string.CCInvalido))
+            return
+        }
         if (CC.isEmpty()) {
             editTextCC.setError(getString(R.string.Necessario_CC))
             editTextCC.requestFocus()
@@ -129,6 +133,10 @@ class FragmentEditDeletePessoa : Fragment(), LoaderManager.LoaderCallbacks<Curso
         }
 
         val Contacto = editTextContacto.text.toString()
+        if (Contacto.length < 9 || Contacto.length > 9){
+            editTextContacto.setError(getString(R.string.ContactoInvalido))
+            return
+        }
         if (Contacto.isEmpty()) {
             editTextContacto.setError(getString(R.string.Necessario_Contacto))
             editTextContacto.requestFocus()
@@ -136,6 +144,10 @@ class FragmentEditDeletePessoa : Fragment(), LoaderManager.LoaderCallbacks<Curso
         }
 
         val NumVacinas = editTextNumVacinas.text.toString()
+        if (NumVacinas.toInt() > 2 || NumVacinas.toInt() < 0){
+            editTextNumVacinas.setError(getString(R.string.Vacina_Max))
+            return
+        }
         if (NumVacinas.isEmpty()) {
             editTextNumVacinas.setError(getString(R.string.Necessario_NumVacina))
             editTextNumVacinas.requestFocus()
