@@ -8,8 +8,7 @@ de covid:
     * Avaliação pessoal desses livros
   
   * Keep Safe
-    * Guardar o nome de pessoas conhecidas que contrairam covid
-    * data em que contrairam , ou pelo menos a data em que soubemos de tal para uma mais segura interação com as pessoas que nos rodeiam
+    * Guardar informações de pessoas conhecidas que contrairam covid
 
   * Travel Safe
     * Avaliar os paises mais seguros para visitar durante o covid, com uma escalada de 0 a 5 estrelas 
